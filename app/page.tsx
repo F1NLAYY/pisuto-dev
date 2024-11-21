@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
+import Navbar from '@/app/componentsbar/Navbar'
 
 export default function Home() {
   return (

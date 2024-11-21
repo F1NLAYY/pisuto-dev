@@ -67,3 +67,15 @@
     @apply bg-background text-foreground;
   }
 }
+
+html {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+[data-theme="dark"] {
+  background-color: #000;
+  color: #fff;
+}
+[data-theme="light"] {
+  background-color: #fff;
+  color: #000;
+}
