@@ -12,14 +12,13 @@ export function ThemeToggle() {
         setMounted(true);
       }, []);
 
-      
+
     const toggleTheme = () => {
       setTheme( resolvedTheme === 'dark' ? 'light' : 'dark');  
     };
 
 
     if (!mounted) {
-        // Prevent rendering until after hydration
         return null;
     }
 

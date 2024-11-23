@@ -1,32 +1,20 @@
-'use client'
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import Script from "next/script";
 
 export default function Home() {
-  const [scrollProgress, setScrollProgress] = useState(0)
-  const [scrollY, setScrollY] = useState(0)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight
-      const progress = (window.scrollY / totalHeight) * 100
-      setScrollProgress(Math.min(progress, 100))
-      setScrollY(window.scrollY)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
+
     <div className="relative">
+      <Script 
+        src="/assets/scrollAnimation.js"
+        strategy="afterInteractive"
+      />
       {/* Background Image with Overlay */}
       <div 
+        data-scroll-background
         className="fixed top-0 left-0 w-full h-screen bg-cover bg-center transition-transform duration-300"
         style={{
           backgroundImage: 'url(/image/Cloud.png)',
-          transform: `translateY(-${scrollProgress / 3}%)`,
-          opacity: Math.max(1 - scrollProgress / 100, 0)
         }}
       />
         <title>pisuto-dev</title>
@@ -40,10 +28,9 @@ export default function Home() {
       <main className="flex-grow">
         {/* First Section (Hero) */}
         <section 
+          data-scroll-hero
           className="relative min-h-screen flex items-center justify-center sticky top-0"
           style={{
-            transform: `translateY(${scrollY * 0.1}px)`,
-            opacity: Math.max(1 - scrollY / 500, 0),
             zIndex: 10
           }}
         >
@@ -77,18 +64,13 @@ export default function Home() {
 
         {/* Second Section (Skills) */}
         <section 
+          data-scroll-skills
           className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-transparent to-gray-100 dark:to-gray-900 sticky top-0"
           style={{
-            transform: `translateY(${-100}px)`,
-            opacity: Math.min(scrollY / 500, 1),
             zIndex: 20
           }}
         >
-          <div className="w-full max-w-6xl mx-auto p-8 transition-all duration-500"
-              //  style={{
-              //    transform: `translateY(${Math.max(0, scrollY - 300)}px)`,
-              //  }}
-              >
+          <div className="w-full max-w-6xl mx-auto p-8 transition-all duration-500">
             <h2 className="text-4xl font-bold mb-12 text-center">Skills & Expertise</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105">
@@ -118,11 +100,7 @@ export default function Home() {
               </div>
 
               <div 
-                className="p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105"
-                // style={{
-                //   transform: `translateY(${Math.min(50, Math.max(0, scrollY - 400))}px)`
-                // }}
-              >
+                className="p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105">
                 <h3 className="text-2xl font-bold mb-4">Mobile Development</h3>
                 <ul className="space-y-3">
                   <li className="flex items-center">
@@ -137,11 +115,7 @@ export default function Home() {
               </div>
 
               <div 
-                className="p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105"
-                // style={{
-                //   transform: `translateY(${Math.min(50, Math.max(0, scrollY - 400))}px)`
-                // }}
-              >
+                className="p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105">
                 <h3 className="text-2xl font-bold mb-4">Network Systems</h3>
                 <ul className="space-y-3">
                   <li className="flex items-center">
@@ -164,11 +138,7 @@ export default function Home() {
               </div>
               
               <div 
-                className="p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105"
-                // style={{
-                //   transform: `translateY(${Math.min(100, Math.max(0, scrollY - 500))}px)`
-                // }}
-              >
+                className="p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg shadow-lg transform transition-all duration-500 hover:scale-105">
                 <h3 className="text-2xl font-bold mb-4">IoT & Embedded Systems</h3>
                 <ul className="space-y-3">
                   <li className="flex items-center">
@@ -191,39 +161,37 @@ export default function Home() {
               </div>
               
             </div>
-            <div className="mt-16 p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg shadow-lg">
-              <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
-              <div className="flex flex-col gap-4">
-                <p className="text-lg">
-                  Interested in working together? Feel free to reach out!
-                </p>
-                <div className="flex gap-4">
-                  <a 
-                    href="#" 
-                    className="px-6 py-3 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-80 transition-opacity"
-                  >
-                    Email Me
-                  </a>
-                  <a 
-                    href="#" 
-                    className="px-6 py-3 border border-black dark:border-white rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-                  >
-                    View Resume
-                  </a>
+              <div className="mt-16 p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg shadow-lg">
+                <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
+                <div className="flex flex-col gap-4">
+                  <p className="text-lg">
+                    Interested in working together? Feel free to reach out!
+                  </p>
+                  <div className="flex gap-4">
+                    <a 
+                      href="#" 
+                      className="px-6 py-3 bg-black dark:bg-white text-white dark:text-black rounded-lg hover:opacity-80 transition-opacity"
+                    >
+                      Email Me
+                    </a>
+                    <a 
+                      href="#" 
+                      className="px-6 py-3 border border-black dark:border-white rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                    >
+                      View Resume
+                    </a>
+                  </div>
                 </div>
               </div>
+              <div>
+                {/* Footer */}
+                <footer className="w-full flex mt-5 justify-center items-center py-4">
+                  © 2024 pisuto-dev
+                </footer>
+              </div>
             </div>
-
-          </div>
         </section>
       </main>
-           {/* Footer */}
-      <footer className="w-full flex justify-center items-center py-4 bg-gray-100 dark:bg-gray-900"
-                style={{
-                  zIndex: 21
-                }}>
-        © 2024 pisuto-dev
-      </footer>
     </div>
   );
 }
