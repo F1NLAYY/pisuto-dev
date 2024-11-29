@@ -8,6 +8,7 @@ export default function Home() {
       <Script 
         src="/assets/scrollAnimation.js"
         strategy="afterInteractive"
+        suppressHydrationWarning
       />
       {/* Background Image with Overlay */}
       <div 
@@ -161,6 +162,64 @@ export default function Home() {
               </div>
               
             </div>
+
+            <div className="w-full max-w-6xl mx-auto pt-20 transition-all duration-500">
+            <h2 className="text-4xl font-bold mb.0-12 text-center">Projects & TA experience</h2>
+            </div>
+
+              <div className="mt-16 p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg shadow-lg">
+                      <h2 className="text-2xl font-bold mb-12 text-left">Projects list</h2>
+
+                      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                          {/* Card 1 */}
+                          <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                              <a href="#">
+                                  <img className="rounded-t-lg" src="/docs/images/mini-p-1-topic.png" alt="" />
+                              </a>
+                              <div className="p-5">
+                                  <a href="#">
+                                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Gaslic : Gas leak alarm with mqtt IoT open from mobile</h5>
+                                  </a>
+                                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Mini project from Wireless and Mobile Networks with Internet of Things	
+                                  course. This project using MQTTX, MySQL, NodeJS, Cloudflare, Line notify, Laravel Framework.</p>
+                                  <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-black rounded-lg hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-500 dark:bg-white dark:text-black dark:hover:bg-gray-200 dark:focus:ring-gray-300">
+                                      Read more
+                                      <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                      </svg>
+                                  </a>
+                              </div>
+                          </div>
+
+                          {/* Card 2 */}
+                          <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                          <a href="#">
+                                  <img className="rounded-t-lg" src="/docs/images/mini-p-2-topic.png" alt="" />
+                              </a>
+                              <div className="p-5">
+                                  <a href="#">
+                                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Smart Fish tank</h5>
+                                  </a>
+                                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Mini project from Introduction to Computer Networking
+                                  course. This project using Blynk, google sheet, NodeMCU, App script, Arduino IDE.</p>
+                                  <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-black rounded-lg hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-500 dark:bg-white dark:text-black dark:hover:bg-gray-200 dark:focus:ring-gray-300">
+                                      Read more
+                                      <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                      </svg>
+                                  </a>
+                              </div>
+                          </div>
+
+                          {/* Card 3 */}
+                          <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                              {/* Similar content for other cards */}
+                          </div>
+                      </div>
+                  </div>
+
+
+
               <div className="mt-16 p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg shadow-lg">
                 <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
                 <div className="flex flex-col gap-4">
