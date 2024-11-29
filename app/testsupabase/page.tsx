@@ -3,27 +3,32 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
 
+type TestTableRow = {
+    id: number
+    created_at: any  // Allows flexibility if you're not sure of exact structure
+  }
+
 export default function TestSupabase() {
-  const [data, setData] = useState<any[] | null>(null)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    async function testSupabaseConnection() {
-      try {
-        const { data: fetchedData, error } = await supabase
-          .from('testtable')
-          .select('*')
-
-        if (error) throw error
-        setData(fetchedData)
-      } catch (err) {
-        console.error('Supabase connection error:', err)
-        setError(err instanceof Error ? err.message : 'An unknown error occurred')
+    const [data, setData] = useState<TestTableRow[] | null>(null)
+    const [error, setError] = useState<string | null>(null)
+  
+    useEffect(() => {
+      async function testSupabaseConnection() {
+        try {
+          const { data: fetchedData, error } = await supabase
+            .from('testtable')
+            .select('*')
+  
+          if (error) throw error
+          setData(fetchedData)
+        } catch (err) {
+          console.error('Supabase connection error:', err)
+          setError(err instanceof Error ? err.message : 'An unknown error occurred')
+        }
       }
-    }
-
-    testSupabaseConnection()
-  }, [])
+  
+      testSupabaseConnection()
+    }, [])
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
