@@ -5,7 +5,7 @@ import { supabase } from '@/lib/supabase'
 
 type TestTableRow = {
     id: number
-    created_at: any  // Allows flexibility if you're not sure of exact structure
+    created_at: string  // Allows flexibility if you're not sure of exact structure
   }
 
 export default function TestSupabase() {
