@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
 
 type TestTableRow = {
-    id: number
+    id?: number
     created_at: string  // Allows flexibility if you're not sure of exact structure
   }
 
